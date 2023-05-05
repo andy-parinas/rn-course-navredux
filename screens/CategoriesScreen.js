@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
@@ -26,6 +26,13 @@ export default function CategoriesScreen({ navigation }) {
             keyExtractor={(item, index) => item.id}
             renderItem={renderCategoryItem}
             numColumns={2}
+            style={styles.container}
         />
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});
