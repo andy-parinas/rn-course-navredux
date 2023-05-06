@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Ionicons } from "@expo/vector-icons";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverview from "./screens/MealsOverview";
 import MealDetailScreen from "./screens/MealDetailScreen";
@@ -32,8 +33,26 @@ function DrawerNavigator() {
         },
       }}
     >
-      <Drawer.Screen name="Categories" component={CategoriesScreen} />
-      <Drawer.Screen name="Favorites" component={FavoriteScreen} />
+      <Drawer.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: "Meal Categories",
+          drawerIcon: ({ size, color }) => {
+            return <Ionicons name="list" size={size} color={color} />;
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoriteScreen}
+        options={{
+          title: "Favorites",
+          drawerIcon: ({ size, color }) => {
+            return <Ionicons name="star" size={size} color={color} />;
+          },
+        }}
+      />
     </Drawer.Navigator>
   );
 }
